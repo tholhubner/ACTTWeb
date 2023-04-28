@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\RawData;
 use Illuminate\Http\Request;
+use Illuminuate\Http\Requests\RawDataRequest;
 
 class RawDataController extends Controller
 {
@@ -29,7 +30,7 @@ class RawDataController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RawDataRequest $request)
     {
         $request->validate([
             'intake_data' => 'required|json'
