@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\RawData;
 use Illuminate\Http\Request;
-use Illuminuate\Http\Requests\RawDataRequest;
+use App\Http\Requests\RawDataRequest;
 
 class RawDataController extends Controller
 {
@@ -32,16 +32,23 @@ class RawDataController extends Controller
      */
     public function store(RawDataRequest $request)
     {
-        $request->validate([
-            'intake_data' => 'required|json'
-        ]);
+        try {
+            $request->validate([
+                'intake_data' => 'required|json'
+            ]);
 
-        $rawData = RawData::create($request->all());
+            $rawData = RawData::create($request->all());
 
-        return response()->json([
-            'message' => "success",
-            'data' => $rawData
-        ], 200);
+            return response()->json([
+                'message' => "success",
+                'data' => $rawData
+            ], 200);
+        } catch (error) {
+            return response()->json([
+                'message' => "failure",
+                'data' => error,
+            ], 500);
+        }
     }
 
     /**
