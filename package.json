@@ -19,6 +19,8 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@stripe/react-stripe-js": "^2.1.0",
+        "@stripe/stripe-js": "^1.52.1",
         "daisyui": "^2.51.6"
     }
 }
