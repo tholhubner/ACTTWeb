@@ -33,9 +33,9 @@ export default function Welcome({ auth, laravelVersion, appVersion }) {
                     )}
                 </div>
 
-                <div className="max-w-7xl max-h-lg mx-auto my-20">
-                    <div className="hero bg-base-200">
-                        <div className="hero-content text-center flex-col py-20">
+                <div className="max-w-full my-20">
+                    <div className="hero bg-base-200 max-w-full">
+                        <div className="hero-content text-center flex-col py-20 px-20">
                             <Logo />
                             <div className="max-w-lg">
                                 <h1 className="text-5xl font-bold">AC Ranked Time Trials</h1>
