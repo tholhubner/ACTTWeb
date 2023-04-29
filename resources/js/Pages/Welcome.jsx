@@ -47,7 +47,7 @@ export default function Welcome({ auth, laravelVersion, appVersion }) {
 
                     <div className="flex justify-center mt-16 px-6 sm:items-center">
                         <div className="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-                            ACTT v{appVersion} | Laravel v{laravelVersion}
+                            ACTT v{appVersion}
                         </div>
                     </div>
                 </div>
