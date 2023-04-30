@@ -41,4 +41,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware(['auth', 'permission'])->group(function () {
+    Route::prefix('users')->group(function () {
+        Route::get('/', [UsersController::class, 'index'])->name('users.index');
+    });
+});
+
+Route::resource('roles', RolesController::class);
+Route::resource('permissions', PermissionsController::class);
+
 require __DIR__.'/auth.php';
