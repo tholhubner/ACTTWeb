@@ -34,7 +34,7 @@ Route::get('/start', function () {
     ]);
 });
 
-Route::middleware(['auth', 'permission'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::resource('users', UsersController::class);
     Route::resource('roles', RolesController::class);
     Route::resource('permissions', PermissionsController::class);
@@ -45,7 +45,7 @@ Route::middleware(['auth', 'permission'])->group(function () {
 
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
-    })->name('dashboard');
+    })->middleware(['auth', 'verified'])->name('dashboard');
 });
 
 require __DIR__.'/auth.php';
