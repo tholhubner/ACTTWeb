@@ -35,8 +35,8 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param $request
-     * @return \Inertia\Response
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request): RedirectResponse
     {
@@ -51,7 +51,7 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param $user
+     * @param User $user
      * @return \Inertia\Response
      */
     public function show(User $user)
@@ -64,7 +64,7 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param $user
+     * @param User $user
      * @return \Inertia\Response
      */
     public function edit(User $user)
@@ -79,8 +79,9 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param $request, $user
-     * @return \Inertia\Response
+     * @param \Illuminate\Http\Request $request
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, User $user): RedirectResponse
     {
@@ -94,8 +95,8 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param $user
-     * @return \Inertia\Response
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(User $user): RedirectResponse
     {
