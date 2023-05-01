@@ -26,6 +26,7 @@ class UpdateUserRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email:rfc,dns|unique:users,email,'.$user->id,
+            'steam' => 'string|max:255'
         ];
     }
 }
