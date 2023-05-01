@@ -24,7 +24,7 @@ class RolesController extends Controller
     {
         $roles = Role::orderBy('id', 'DESC')->paginate(5);
 
-        return Inertia::Render('Roles/Index', [
+        return Inertia::render('Roles/Index', [
             'roles' => $roles
         ])->with('i', ($request->input('page', 1) - 1) * 5);
     }
@@ -38,7 +38,7 @@ class RolesController extends Controller
     {
         $permissions = Permission::get();
 
-        return Inertia::Render('Roles/Create', [
+        return Inertia::render('Roles/Create', [
             'permissions' => $permissions
         ]);
     }
@@ -74,7 +74,7 @@ class RolesController extends Controller
         $role = $role;
         $role_permissions = $role->permissions;
 
-        return Inertia::Render('Roles/Show', [
+        return Inertia::render('Roles/Show', [
             'role' => $role,
             'role_permissions' => $role_permissions,
         ]);
@@ -91,7 +91,7 @@ class RolesController extends Controller
         $role_permissions = $role->permissions->pluck('name')->toArray();
         $permissions = Permission::get();
 
-        return Inertia::Render('Roles/Edit', [
+        return Inertia::render('Roles/Edit', [
             'role' => $role,
             'role_permissions' => $role_permissions,
             'permissions' => $permissions

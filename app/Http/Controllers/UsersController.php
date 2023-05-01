@@ -56,7 +56,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        return Inertia::Render('Users/Show', [
+        return Inertia::render('Users/Show', [
             'user' => $user
         ]);
     }
@@ -69,7 +69,7 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        return Inertia::Render('Users/Edit', [
+        return Inertia::render('Users/Edit', [
             'user' => $user,
             'userRole' => $user->roles->pluch('name')->toArray(),
             'roles' => Role::latest()->get()
