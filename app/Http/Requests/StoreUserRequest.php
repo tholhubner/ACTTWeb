@@ -24,6 +24,7 @@ class StoreUserRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email:rfc,dns|unique:users,email',
+            'steam' => 'string|max:255',
         ];
     }
 }
