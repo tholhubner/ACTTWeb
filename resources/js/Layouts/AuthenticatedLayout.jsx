@@ -1,14 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/react';
+import { isAdmin } from "../Helpers/userHelpers";
 
-export default function Authenticated({ auth, user, header, children }) {
+export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
+    const [isUserAdmin, setIsUserAdmin] = useState(isAdmin(user.roles))
 
-    console.log("User::", auth)
+    useEffect(() => {
+        setIsUserAdmin(isAdmin(user.roles))
+    }, [user])
 
     return (
         <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
@@ -25,10 +29,6 @@ export default function Authenticated({ auth, user, header, children }) {
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Dashboard
-                                </NavLink>
-
-                                <NavLink href={route('users.index')} active={route().current('users')}>
-                                    Users
                                 </NavLink>
                             </div>
                         </div>

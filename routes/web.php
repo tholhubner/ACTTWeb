@@ -34,18 +34,24 @@ Route::get('/start', function () {
     ]);
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'role:super-admin|admin'])->group(function () {
     Route::resource('users', UsersController::class);
     Route::resource('roles', RolesController::class);
     Route::resource('permissions', PermissionsController::class);
 
+    Route::get('/', function () {
+        return Inertia::render('Admin/Index');
+    });
+});
+
+Route::prefix('dashboard')->middleware(['auth', 'role:admin|basic|super-admin'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('/', function () {
+        return Inertia::render('Dashboard/Index');
+    })->name('dashboard');
 });
 
 require __DIR__.'/auth.php';
