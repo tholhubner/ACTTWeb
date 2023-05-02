@@ -6,7 +6,7 @@ const Index = ({ auth }) => {
         <AuthenticatedLayout
             auth={auth}
             user={auth.user}
-            header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Admin Dashboardd</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Admin Dashboard</h2>}
         >
             <Head title="Admin" />
 
