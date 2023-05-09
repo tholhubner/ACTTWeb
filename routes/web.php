@@ -24,7 +24,7 @@ Route::get('/', function () {
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'appVersion' => env('APP_VERSION', "0.0.0"),
-        'environment' => env('APP_ENV', "local")
+        'environment' => env('APP_ENV', "local"),
     ]);
 });
 

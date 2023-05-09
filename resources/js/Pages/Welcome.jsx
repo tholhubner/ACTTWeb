@@ -2,12 +2,12 @@ import { Head } from '@inertiajs/react'
 import Logo from "../Components/Logo"
 import BasicNav from "@/Components/BasicNav";
 
-export default function Welcome({ auth, appVersion }) {
+export default function Welcome({ auth, appVersion, environment }) {
     return (
         <>
             <Head title="Welcome" />
             <div className="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-                <BasicNav auth={auth} />
+                <BasicNav auth={auth} environment={environment} />
 
                 <div className="max-w-full my-20">
                     <div className="hero bg-base-200 max-w-full">

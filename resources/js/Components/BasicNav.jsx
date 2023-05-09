@@ -1,7 +1,8 @@
 import React from "react"
 import { Link } from '@inertiajs/react'
 
-const BasicNav = ({ auth }) => {
+const BasicNav = ({ auth, environment }) => {
+    console.log(environment)
     return (
         <>
             <div className="sm:fixed sm:top-0 sm:left-0 p-6 text-left">
